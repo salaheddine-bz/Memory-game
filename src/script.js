@@ -31,6 +31,7 @@ timeElement.innerHTML = "00:00";
 movesElement.innerHTML = moves;
 nameElement.innerHTML = localStorage.getItem("name");
 createCards(imageArray.length);
+appendRandomImages();
 
 if (nameElement.innerHTML === "") {
     usernameContainer.style.display = "flex";
@@ -57,7 +58,6 @@ startButton.addEventListener("click",()=>{
         makeAllcardsVisible();
     }, delay);
 
-    appendRandomImages();
 
     cardsContainer.addEventListener("click", (e) => {
         if (e.target.classList.contains("front")) {
