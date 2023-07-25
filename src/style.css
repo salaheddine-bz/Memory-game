@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #f3c430;
+    --text-color: #0C090A;
+    --background-color: #FFFAFA;
+    --result-bg-color: #0c090ad3;
+
+    --border-radius: 5px;
+}
+
+html {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    height: 100dvh;
+    color: var(--text-color);
+}
+
+.memory-game-container {
+    height: 100%;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    padding: 20px;
+}
+
+.memory-game-container .title {
+    font-size: clamp(1.7rem, 4vw, 2rem);
+    font-weight: 900;
+}
+
+.memory-game {
+    overflow-y: hidden;
+    width: 100%;
+    height: 80%;
+    max-width: 380px;
+    max-height: 500px;
+    background-color: var(--background-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.memory-game .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.header > div {
+    font-weight: 800;
+}
+
+.header span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.header .time-number {
+    width: 55px;
+    height: 55px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    border: 3px solid var(--text-color);
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+    perspective: 1000px;
+}
+
+.cards .card {
+    aspect-ratio: 1/1;
+    background-color: var(--main-color);
+    border: 3px solid var(--text-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    place-items: center;
+    place-content: center;
+    font-size: 1.7rem;
+    font-weight: 800;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.cards .card .front,
+.cards .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.cards .card .front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards .card .back {
+    transform: rotateY(180deg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+}
+
+.cards .card.active {
+    transform: rotateY(180deg);
+}
+
+button {
+    width: fit-content;
+    padding: 10px 10px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius);
+    align-self: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+button.start-game.not-active {
+    display: none;
+}
+
+button.end-game {
+    display: none;
+}
+
+button.end-game.active {
+    display: block;
+}
+
+.result,
+.username {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--result-bg-color);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color);
+    z-index: 5;
+}
+
+.username {
+    z-index: 10;
+}
+
+.username>div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.username label {
+    text-transform: capitalize;
+    margin-left: 2px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.username > div > form {
+    display: flex;
+    column-gap: 5px;
+}
+
+.username input#user {
+    max-width: 250px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.username input[type="submit"] {
+    padding: 0 7px;
+    font-size: 1.2rem;
+    background-color: var(--main-color);
+    border-radius: var(--border-radius);
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+
+.result {
+    display: none;
+}
+
+.result>div {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.result .emoji {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.result .counter {
+    margin-top: 40px;
+    width: 30px;
+    height: 30px;
+    color: var(--main-color);
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+    line-height: 30px;
+    visibility: hidden;
+}

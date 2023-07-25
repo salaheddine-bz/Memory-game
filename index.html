@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link Css -->
+    <link rel="stylesheet" href="src/style.css">
+    <title>Memory Game</title>
+</head>
+<body>
+
+    <section class="username">
+        <div>
+            <label>enter your name :</label>
+            <form>
+                <input type="text" name="user" id="user">
+                <input type="submit" value="✔️">
+            </form>
+        </div>
+    </section>
+    
+    <section class="memory-game-container">
+        <div class="title">Memory Game</div>
+        <div class="memory-game">
+            <div class="header">
+                <div class="content">
+                    <div class="name">Name : <span></span></div>
+                    <div class="moves">
+                        Wrong Moves : <span class="moves-number"></span>
+                    </div>
+                </div>
+                <div class="time-number"></div>
+            </div>
+            <div class="cards"></div>
+            <button class="start-game">start game</button>
+            <button class="end-game">play again</button>
+        </div>
+    </section>
+    
+    <section class="result">
+        <div class="emoji">😲</div>
+        <div class="game">you <span>win</span></div>
+        <div class="score"><span>perfect</span> score</div>
+        <div class="counter">0</div>
+    </section>
+
+    <audio src="/sounds/lose.mp3" id="lose"></audio>
+    <audio src="/sounds/correct.mp3" id="correct"></audio>
+    <audio src="/sounds/win.mp3" id="win"></audio>
+    <audio src="/sounds/gameover.mp3" id="gameover"></audio>
+
+    <!-- add JS file -->
+    <script src="src/script.js"></script>
+</body>
+</html>
