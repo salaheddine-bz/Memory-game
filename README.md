@@ -3,7 +3,11 @@ I built this game with HTML, CSS and Vanilla Javascript
 
 ## About
 The Memory Game is a fun and interactive web-based game built with Vanilla JavaScript. The game challenges players to find matching pairs of cards from a shuffled deck within a limited number of attempts.
+
 ![PNG Image](/memory_game_preview.png)
+
+## Live Preview
+[Memory-game](https://run-memory-game.netlify.app/)
 
 
 ## Features
